@@ -9,7 +9,7 @@ Generating puzzles from zero requires generator to check whether each generated 
 3) Also we can shuffle columns of the grid as we shuffle the rows but i.e., we can only swap first which is [0] column of the grid either second which is [1] column of the grid or third [2] column of the grid.
 The implementation of the all steps that we've mentioned above is not too hard to done. We make all them happen randomly, hence we achieve to create a new sudoku grid by using template one.
 But still, we got a problem to deal with. We mentioned how we can get a new sudoku table from the template one for now but we never have mentioned about how we can generate a puzzle with using a fully solved grid. The main idea of generating puzzles is roughly, like every sudoku table is unique on the other hand most of the puzzles are symmetric actually. So, how we can use it to generate puzzles? What if we use this information to generate puzzles? To generate puzzles from fully solved grid we should hide cells but according to what? We should hide cells with respect to X = Y symmetric.
-If we choose to hide a cell that has [2,2] coordinates than we should hide the cell that has [6,6] coordinates too. That's the whole story about hiding cells of the grid. We can easily make them happen randomly.
+If we choose to hide a cell that has [2,2] coordinates then we should hide the cell that has [6,6] coordinates too. That's the whole story about hiding cells of the grid. We can easily make them happen randomly.
 We actually added difficulty options which are optional. Implementation of them is really simple. Even someone who doesn't understand anything about programming can understand of them by just looking at their enum class.
 #### Solving puzzles
 The main approach that we used while we solving puzzles is quite similar to the program does. We use brute-force approach to solve sudoku puzzles, but what is it and how it is works? The algorithm of brute-force is too simple actually easy simple to understand from as it's named. We just simply look for empty cells of the puzzle and when we found a empty cell, try each of the values of the sudoku that can be fit in here. Firstly, we check is that value can be placed into this cell according to sudoku rules. Secondly, we check (n+1)th empty cell can be filled with using this value that we placed into. If it is not, we'll backtrack and continue where we left. Of course we have base case since we'll be iterating cell to cell to decide when the whole process is done.
@@ -19,7 +19,7 @@ Don't worry, only cryptology that we done in the program is just simply changing
 C, N, G, B, I, M, 2, 1, 3 which is actually represents CENG -> (Computer Engineering) BIM213 -> Code of the lesson
 So if you want to use it program by just change values C, N, G, B, I, M, 2, 1, 3 to 1, 2, 3, 4, 5, 6, 7, 8, 9 again.
 ### Usage
-Just clone the repository, than go to the direction of cloned repository and write:
+Just clone the repository, then go to the direction of cloned repository and write:
 `mvn clean package`
 After the build is done, just simply write `java -jar target\sudokur.jar` to use Sudokur.
 ![Image of Sudokur](https://i.imgur.com/B1oUjay.png)
